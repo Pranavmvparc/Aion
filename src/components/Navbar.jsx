@@ -1,22 +1,13 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-const navLinks = [
-    { label: 'Forge', href: '#forge' },
-    { label: 'Nexus', href: '#nexus' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'FAQs', href: '#faqs' },
-];
+const navLinks = ['Forge', 'Nexus', 'Pricing', 'Blog', 'FAQs'];
 
 export default function Navbar() {
-    const reduceMotion = useReducedMotion();
-    const MotionNav = motion.nav;
-
     return (
-        <MotionNav
-            aria-label="Primary navigation"
-            initial={reduceMotion ? false : { opacity: 0, y: -20 }}
+        <motion.nav
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -40,7 +31,6 @@ export default function Navbar() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    /* Removed all box shadows as requested */
                 }}
             >
                 <div style={{ display: 'flex', gap: '2px', alignItems: 'flex-end' }}>
@@ -99,10 +89,9 @@ export default function Navbar() {
             >
                 <ul style={{ display: 'flex', gap: '2rem' }}>
                     {navLinks.map((link) => (
-                        <li key={link.href}>
+                        <li key={link}>
                             <a
-                                href={link.href}
-                                className="navbar-link"
+                                href={`#${link.toLowerCase()}`}
                                 style={{
                                     color: '#333',
                                     fontFamily: '"IBM Plex Sans", sans-serif',
@@ -110,19 +99,21 @@ export default function Navbar() {
                                     fontSize: '14px',
                                     lineHeight: '20px',
                                     letterSpacing: '0',
+                                    transition: 'opacity 0.2s',
                                     verticalAlign: 'middle',
                                     textDecoration: 'none',
                                     display: 'block',
                                 }}
+                                onMouseEnter={(e) => e.target.style.opacity = 0.6}
+                                onMouseLeave={(e) => e.target.style.opacity = 1}
                             >
-                                {link.label.toUpperCase()}
+                                {link.toUpperCase()}
                             </a>
                         </li>
                     ))}
                 </ul>
 
                 <button
-                    className="navbar-signup"
                     style={{
                         backgroundColor: '#0A8F68',
                         color: '#fff',
@@ -137,10 +128,12 @@ export default function Navbar() {
                         border: 'none',
                         flexShrink: 0,
                     }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#087A5A'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#0A8F68'}
                 >
                     Sign Up
                 </button>
             </div>
-        </MotionNav>
+        </motion.nav>
     );
 }

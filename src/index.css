@@ -3,10 +3,8 @@
   --font-sans: 'Inter', sans-serif;
 
   --color-bg: #F0F0F0;
-  /* Slight grey for that premium feel, or #FFFFFF if strictly white */
   --color-text: #111111;
   --color-accent: #00935D;
-  /* Green from the screenshot */
   --color-accent-hover: #007A4D;
 
   --spacing-base: 1rem;
@@ -51,12 +49,6 @@ a {
   text-transform: uppercase;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #0a8f68;
-  outline-offset: 2px;
-}
-
 ul {
   list-style: none;
 }
@@ -66,24 +58,6 @@ button {
   border: none;
   cursor: pointer;
   background: none;
-}
-
-.navbar-link {
-  transition: opacity 0.2s ease;
-}
-
-.navbar-link:hover,
-.navbar-link:focus-visible {
-  opacity: 0.6;
-}
-
-.navbar-signup {
-  transition: background-color 0.2s ease;
-}
-
-.navbar-signup:hover,
-.navbar-signup:focus-visible {
-  background-color: #087A5A !important;
 }
 
 .problem-section {
@@ -312,7 +286,7 @@ button {
 
 .forge-stack-section {
   background-color: #001f2a;
-  background-image: linear-gradient(rgba(0, 22, 31, 0.88), rgba(0, 22, 31, 0.88)), url('/forge-bg.png');
+  background-image: linear-gradient(rgba(0, 22, 31, 0.88), rgba(0, 22, 31, 0.88)), url('/images/forge-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -529,34 +503,6 @@ button {
   line-height: 1;
   color: #edf3f7;
   flex: 0 0 auto;
-}
-
-.carousel-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.carousel-control-btn {
-  border: 1px solid rgba(209, 225, 235, 0.75);
-  color: #edf3f7;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-  line-height: 1;
-  padding: 0.72rem 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.carousel-control-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.forge-track:focus-visible,
-.nexus-track:focus-visible {
-  outline: 2px solid #9ad9c4;
-  outline-offset: 4px;
 }
 
 .forge-carousel {
@@ -1460,7 +1406,9 @@ button {
     max-width: 100%;
     font-size: clamp(1.2rem, 4.9vw, 2rem);
   }
-}.bn-section {
+}
+
+.bn-section {
   background: #061426;
   padding: clamp(4rem, 6vw, 5rem) var(--spacing-container) clamp(3.2rem, 5vw, 4.2rem);
 }
@@ -1705,11 +1653,9 @@ button {
   right: 0;
   bottom: 0;
   height: 1px;
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(220, 223, 233, 0.22) 0 8px,
-    transparent 8px 16px
-  );
+  background-image: repeating-linear-gradient(to right,
+      rgba(220, 223, 233, 0.22) 0 8px,
+      transparent 8px 16px);
 }
 
 .faq-item:last-child::after {
