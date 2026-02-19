@@ -1,0 +1,37 @@
+.hero-section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--spacing-container) 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 56px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: left;
+  margin: 0;
+  max-width: 20ch;
+  color: #fff;
+}
+
+.hero-motif-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.6;
+  margin-bottom: 0.4em;
+}

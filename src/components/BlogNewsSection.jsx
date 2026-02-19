@@ -1,3 +1,5 @@
+import './BlogNewsSection.css';
+
 const cards = [
     {
         id: 'feature-left',

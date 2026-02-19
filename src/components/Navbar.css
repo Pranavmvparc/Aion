@@ -1,0 +1,82 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem var(--spacing-container);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.navbar-brand-shell {
+  background-color: #fff;
+  padding: 0.4rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 400;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand-mark {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.navbar-menu-shell {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 0.3rem 0.3rem 0.3rem 1.7rem;
+  border-radius: 4px;
+  pointer-events: auto;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-link {
+  color: #333;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  transition: opacity 0.2s;
+  vertical-align: middle;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar-link:hover,
+.navbar-link:focus-visible {
+  opacity: 0.6;
+}
+
+.navbar-signup-btn {
+  background-color: #0a8f68;
+  color: #fff;
+  padding: 0.72rem 0.8rem;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: none;
+  flex-shrink: 0;
+}
+
+.navbar-signup-btn:hover,
+.navbar-signup-btn:focus-visible {
+  background-color: #087a5a;
+}

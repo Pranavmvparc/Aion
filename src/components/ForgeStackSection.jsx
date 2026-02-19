@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SlashMotif from './SlashMotif';
+import './ForgeStackSection.css';
 
 const slides = [
     {

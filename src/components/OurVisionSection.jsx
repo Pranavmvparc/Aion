@@ -1,3 +1,5 @@
+import './OurVisionSection.css';
+
 export default function OurVisionSection() {
     return (
         <section className="ov-section">

@@ -1,0 +1,33 @@
+.slash-motif-row {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.08rem, 0.18vw, 0.15rem);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.slash-motif-svg {
+  width: clamp(2rem, 2.8vw, 2.6rem);
+  height: auto;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.slash-motif-strong {
+  color: #0f0f0f;
+}
+
+.slash-motif-soft {
+  color: #bcbcbc;
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-left: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .slash-motif-svg {
+    width: clamp(1.6rem, 5.2vw, 2rem);
+  }
+}

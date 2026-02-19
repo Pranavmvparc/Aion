@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SlashMotif from './SlashMotif';
+import './Mission.css';
 
 const text1 = "We design, build, and deploy the systems that turn research into enterprise-grade AI.";
 const text2 = "From models to infrastructure, we close the gap between pilot and production.";
@@ -14,7 +15,7 @@ const Word = ({ children, progress, range }) => {
     );
 
     return (
-        <motion.span style={{ color, marginRight: '0.25em' }}>
+        <motion.span className="mission-word" style={{ color }}>
             {children}
         </motion.span>
     );
@@ -29,7 +30,7 @@ const MotifPiece = ({ progress, range }) => {
     );
 
     return (
-        <motion.span style={{ color, display: 'inline-flex' }}>
+        <motion.span className="mission-motif-piece" style={{ color }}>
             <SlashMotif repeat={1} />
         </motion.span>
     );
@@ -41,18 +42,7 @@ const Paragraph = ({ text, progress, rangeStart, rangeEnd }) => {
     const step = amount / words.length;
 
     return (
-        <p style={{
-            fontFamily: '"IBM Plex Sans", sans-serif',
-            fontWeight: 400,
-            fontStyle: 'normal',
-            fontSize: '48px',
-            lineHeight: '110%',
-            letterSpacing: '0%',
-            margin: 0,
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center'
-        }}>
+        <p className="mission-paragraph">
             {words.map((word, i) => {
                 const start = rangeStart + (i * step);
                 const end = start + (step * 0.9);
@@ -84,38 +74,18 @@ export default function Mission() {
         <section
             id="mission"
             ref={containerRef}
-            style={{
-                height: '400vh',
-                position: 'relative',
-                backgroundColor: 'var(--color-bg)',
-            }}
+            className="mission-section"
         >
-            <div
-                style={{
-                    position: 'sticky',
-                    top: 0,
-                    height: '100vh',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: '0 var(--spacing-container)',
-                    overflow: 'hidden'
-                }}
-            >
-                <div style={{ maxWidth: '1000px', textAlign: 'center' }}>
+            <div className="mission-sticky">
+                <div className="mission-shell">
                     <Paragraph text={text1} progress={scrollYProgress} rangeStart={0.1} rangeEnd={0.45} />
 
-                    <div style={{ height: '3rem' }} />
+                    <div className="mission-spacer" />
 
                     <Paragraph text={text2} progress={scrollYProgress} rangeStart={0.5} rangeEnd={0.85} />
 
                     <MotionDiv
-                        style={{
-                            marginTop: '4rem',
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap'
-                        }}
+                        className="mission-divider"
                     >
                         <span className="slash-motif-row" aria-hidden="true">
                             {Array.from({ length: motifCount }, (_, i) => {

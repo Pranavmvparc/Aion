@@ -1,39 +1,27 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import './Navbar.css';
 
-const navLinks = ['Forge', 'Nexus', 'Pricing', 'Blog', 'FAQs'];
+const navLinks = [
+    { label: 'Forge', href: '#forge' },
+    { label: 'Nexus', href: '#nexus' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'FAQs', href: '#faqs' },
+];
 
 export default function Navbar() {
+    const MotionNav = motion.nav;
+    const reduceMotion = useReducedMotion();
+
     return (
-        <motion.nav
-            initial={{ opacity: 0, y: -20 }}
+        <MotionNav
+            aria-label="Primary navigation"
+            initial={reduceMotion ? false : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '2rem var(--spacing-container)',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 50,
-                pointerEvents: 'none',
-            }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.6, ease: 'easeOut' }}
+            className="navbar"
         >
-            <div
-                style={{
-                    backgroundColor: '#fff',
-                    padding: '0.4rem 1.2rem',
-                    borderRadius: '4px',
-                    fontWeight: 400,
-                    pointerEvents: 'auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <div style={{ display: 'flex', gap: '2px', alignItems: 'flex-end' }}>
+            <div className="navbar-brand-shell">
+                <div className="navbar-brand-mark">
                     <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.08767 16.8986C3.41917 16.8986 0 13.0849 0 8.41645C0 3.81373 3.68219 0 8.58083 0C13.4465 0 17.1616 3.61645 17.1616 8.41645V16.5041H14.0712V13.6767C12.8548 15.6493 10.7178 16.8986 8.08767 16.8986ZM8.58083 13.8082C11.6054 13.8082 13.9068 11.3754 13.9068 8.44928C13.9068 5.49037 11.6054 3.05754 8.58083 3.05754C5.58904 3.05754 3.25479 5.49037 3.25479 8.44928C3.25479 11.3754 5.58904 13.8082 8.58083 13.8082Z" fill="url(#paint0_radial_1_997)" />
                         <defs>
@@ -76,64 +64,24 @@ export default function Navbar() {
                 </div>
             </div>
 
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '2rem',
-                    backgroundColor: '#fff',
-                    padding: '0.3rem 0.3rem 0.3rem 1.7rem',
-                    borderRadius: '4px',
-                    pointerEvents: 'auto',
-                }}
-            >
-                <ul style={{ display: 'flex', gap: '2rem' }}>
+            <div className="navbar-menu-shell">
+                <ul className="navbar-links">
                     {navLinks.map((link) => (
-                        <li key={link}>
+                        <li key={link.href}>
                             <a
-                                href={`#${link.toLowerCase()}`}
-                                style={{
-                                    color: '#333',
-                                    fontFamily: '"IBM Plex Sans", sans-serif',
-                                    fontWeight: 400,
-                                    fontSize: '14px',
-                                    lineHeight: '20px',
-                                    letterSpacing: '0',
-                                    transition: 'opacity 0.2s',
-                                    verticalAlign: 'middle',
-                                    textDecoration: 'none',
-                                    display: 'block',
-                                }}
-                                onMouseEnter={(e) => e.target.style.opacity = 0.6}
-                                onMouseLeave={(e) => e.target.style.opacity = 1}
+                                href={link.href}
+                                className="navbar-link"
                             >
-                                {link.toUpperCase()}
+                                {link.label.toUpperCase()}
                             </a>
                         </li>
                     ))}
                 </ul>
 
-                <button
-                    style={{
-                        backgroundColor: '#0A8F68',
-                        color: '#fff',
-                        padding: '0.72rem 0.8rem',
-                        borderRadius: '4px',
-                        fontSize: '12px',
-                        fontWeight: 500,
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase',
-                        transition: 'background-color 0.2s',
-                        fontFamily: '"IBM Plex Sans", sans-serif',
-                        border: 'none',
-                        flexShrink: 0,
-                    }}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#087A5A'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#0A8F68'}
-                >
+                <button type="button" className="navbar-signup-btn">
                     Sign Up
                 </button>
             </div>
-        </motion.nav>
+        </MotionNav>
     );
 }

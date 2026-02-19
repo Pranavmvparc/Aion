@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 import SlashMotif from './SlashMotif';
+import './ProblemSection.css';
 
 const paragraphs = [
     '88% of enterprises experiment with AI, yet only 7% reach production scale.',
@@ -28,12 +29,12 @@ const getMotifPieceStrength = (index, totalCount, progress) => {
     return clamp01((progress - start) / (end - start));
 };
 
-const ParagraphWordFade = ({ text, progress, className, style }) => {
+const ParagraphWordFade = ({ text, progress, className }) => {
     const words = text.split(' ');
     const activeWords = Math.min(words.length, Math.floor(progress * words.length));
 
     return (
-        <p className={className} style={style}>
+        <p className={className}>
             {words.map((word, index) => (
                 <span
                     key={`${word}-${index}`}
@@ -112,7 +113,6 @@ export default function ProblemSection() {
                                     text={paragraphs[activeStep]}
                                     progress={stepProgress}
                                     className="problem-copy problem-copy-layer"
-                                    style={{ opacity: 1 }}
                                 />
                             </div>
 

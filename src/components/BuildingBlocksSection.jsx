@@ -4,6 +4,7 @@ import SlashMotif from './SlashMotif';
 import componentActive from '../assets/building-blocks/component-active.svg';
 import componentInactive from '../assets/building-blocks/component-inactive.svg';
 import chipIcon from '../assets/building-blocks/chip.svg';
+import './BuildingBlocksSection.css';
 
 const steps = [
     {

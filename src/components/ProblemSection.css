@@ -1,0 +1,190 @@
+.problem-section {
+  background: #efefef;
+  height: 270vh;
+  position: relative;
+  padding: 0 var(--spacing-container);
+}
+
+.problem-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  background: #efefef;
+  overflow: hidden;
+}
+
+.problem-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  padding-top: clamp(5rem, 8vw, 7rem);
+  overflow: hidden;
+}
+
+.problem-title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #0f0f0f;
+  max-width: 12ch;
+}
+
+.problem-title-line {
+  white-space: nowrap;
+}
+
+.problem-divider {
+  margin-top: clamp(2.2rem, 4vw, 4rem);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.problem-divider-track {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.06rem, 0.12vw, 0.1rem);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.problem-divider-piece {
+  display: inline-flex;
+  align-items: center;
+}
+
+.problem-main {
+  margin-top: clamp(2.25rem, 4vw, 4rem);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+.problem-step {
+  width: 76px;
+  height: 52px;
+  border: 1px solid #d7d7d7;
+  background: rgba(255, 255, 255, 0.32);
+  color: #0f0f0f;
+  display: grid;
+  place-items: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.problem-copy-wrap {
+  width: 100%;
+  max-width: 690px;
+  margin-left: auto;
+  position: relative;
+}
+
+.problem-copy-stack {
+  display: grid;
+  min-height: clamp(165px, 16vw, 230px);
+  width: 100%;
+}
+
+.problem-copy {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 110%;
+  color: #b3b3b3;
+  letter-spacing: 0;
+}
+
+.problem-copy-layer {
+  grid-area: 1 / 1;
+  margin: 0;
+  max-width: 100%;
+}
+
+.problem-copy-word {
+  color: #b3b3b3;
+  transition: color 140ms linear;
+}
+
+.problem-copy-word.is-active {
+  color: #0f0f0f;
+}
+
+.problem-copy-strong {
+  color: #0f0f0f;
+  font-weight: 500;
+}
+
+.problem-grid {
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  height: clamp(260px, 36vw, 430px);
+  border-top: 1px solid #8f8f8f;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.problem-grid span {
+  border-left: 1px solid #8f8f8f;
+}
+.problem-divider .slash-motif-row {
+  gap: 0;
+}
+
+.problem-divider .slash-motif-svg {
+  width: clamp(0.5rem, 0.72vw, 0.66rem);
+}
+
+@media (max-width: 900px) {
+  .problem-section {
+    height: 305vh;
+  }
+
+  .problem-sticky {
+    height: 100dvh;
+  }
+
+  .problem-shell {
+    height: 100%;
+    padding-bottom: 4rem;
+  }
+
+  .problem-main {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-step {
+    margin-bottom: 0.4rem;
+  }
+
+  .problem-copy-wrap {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .problem-title {
+    font-size: 40px;
+  }
+
+  .problem-copy {
+    font-size: 40px;
+  }
+
+  .problem-copy-stack {
+    min-height: 180px;
+  }
+
+  .problem-grid {
+    height: 220px;
+  }
+
+  .problem-divider .slash-motif-svg {
+    width: clamp(1.45rem, 4.8vw, 1.85rem);
+  }
+}
